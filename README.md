@@ -2,7 +2,7 @@ Sistema em Angular que:
 administra os computadores em estoque.
 
 
-O sistema permite cadastrar, listar, filtrar, visualizar, alterar e excluir computadores.
+O sistema permite cadastrar(2), listar(ok), filtrar(5), visualizar(1), alterar(4) e excluir(3) computadores.
 
 
 INFORMAÇÕES REGISTRADAS PELO SISTEMA, 

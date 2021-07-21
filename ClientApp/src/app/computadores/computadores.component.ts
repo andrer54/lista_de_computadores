@@ -16,7 +16,7 @@ export class ComputadoresComponent {
 }
 
 interface Computadores {
-    id : number,
+  id : number,
   marca : string,
   modelo : string,
   placa_mae : string,

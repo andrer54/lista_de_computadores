@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using lista_de_computadores.Models;
 using Microsoft.EntityFrameworkCore;
 
+using System;
+
+
 namespace lista_de_computadores.Controllers
 {
     [ApiController]
@@ -26,7 +29,7 @@ namespace lista_de_computadores.Controllers
             catch (System.Exception ex)
             {
                 
-                throw ex;
+                return BadRequest();
             }
             
         }
@@ -42,9 +45,41 @@ namespace lista_de_computadores.Controllers
             catch (System.Exception ex)
             {
                 
-                throw ex;
+                return BadRequest(ex);
             }
-            
+            return BadRequest();
+        }
+
+        //CRIAR REGISTRO
+        [HttpPost]
+        public async Task<ActionResult<Computador>> PostComputador(Computador computador)
+        {
+            _repo.Computador.Add(computador);
+            await _repo.SaveChangesAsync();
+
+            //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
+            return CreatedAtAction(nameof(Get), new { id = computador.id }, computador);
+        }
+
+        //UPDATE REGISTRO
+                [HttpPost("{id}")]
+        public async Task<ActionResult<Computador>> updateComputador(Computador computador) {
+            try
+            {
+                _repo.Computador.Update(computador);
+                await _repo.SaveChangesAsync();
+
+                //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
+                return Ok();//CreatedAtAction(nameof(Get), new { id = computador.id }, computador);
+
+
+            }
+            catch (System.Exception ex)
+            {
+                
+                return BadRequest(ex);
+            }
+            return BadRequest();
         }
 
     }
