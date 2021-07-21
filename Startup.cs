@@ -28,8 +28,7 @@ namespace lista_de_computadores
 
             services.AddControllersWithViews();
 
-            services.AddScoped<IRepository, Repository>();
-
+            
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

@@ -1,0 +1,41 @@
+<h1 id="tableLabel">Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!computadores"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="computadores">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>marca</th>
+      <th>modelo</th>
+      <th>placa_mae</th>
+      <th>ram</th>
+      <th>hdEMarca</th>
+      <th>velocidadeDoProcessador</th>
+      <th>imagem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let computador of computadores">
+      <td>{{ computador.id }}</td>
+      <td>{{ computador.marca }}</td>
+      <td>{{ computador.modelo }}</td>
+      <td>{{ computador.placa_mae }}</td>
+      <td>{{ computador.ram }}</td>
+      <td>{{ computador.hdEMarca }}</td>
+      <td>{{ computador.velocidadeDoProcessador }}</td>
+      <td>{{ computador.imagem }}</td>
+
+      
+      
+      
+      
+      
+      
+      
+      
+    </tr>
+  </tbody>
+</table>

@@ -6,7 +6,8 @@ namespace lista_de_computadores.Data
 {
     public class DataContext : DbContext
     {
-         public DataContext(DbContextOptions<DataContext> options) : base (options) { }        
+        public DataContext(DbContextOptions<DataContext> options) : base (options) { }        
+        
         public DbSet<Computador> Computador { get; set; }
 
         public string g = "generico";
@@ -16,17 +17,6 @@ namespace lista_de_computadores.Data
             
             builder.Entity<Computador>()
                 .HasData(new List<Computador>(){
-                    /*
-                        id
-                        marca
-                        modelo
-                        placa_mae
-                        ram
-                        hdEMarca
-                        velocidadeDoProcessador
-                        imagem
-
-                    */
                     
                     new Computador(2, "Compaq", "Compaq", "3354288", g,"500gb SeaGate",g,g),
                     new Computador(3, "IBM", "Antonia", "55668899", g,g,g,g),
