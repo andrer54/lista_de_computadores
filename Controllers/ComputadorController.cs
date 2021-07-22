@@ -82,5 +82,26 @@ namespace lista_de_computadores.Controllers
             return BadRequest();
         }
 
+        //DELETE COMPUTADOR
+        [HttpPost("delete/{id}")]
+        public async Task<ActionResult<Computador>> DeleteComputador(int id) {
+            try
+            {
+                var pc = await _repo.Computador.FindAsync(id);
+                _repo.Computador.Remove(pc);
+            
+                await _repo.SaveChangesAsync();
+
+               return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                
+                return BadRequest(ex);
+            }
+            return BadRequest();
+        }
+        
+
     }
 }
