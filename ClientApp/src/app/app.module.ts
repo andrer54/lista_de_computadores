@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ComputadoresComponent } from './computadores/computadores.component';
+import { FormularioComponent } from './formulario/formulario.component';
+
+import { Ng2SearchPipeModule } from "ng2-search-filter"; // import
 
 @NgModule({
   declarations: [
@@ -18,17 +21,21 @@ import { ComputadoresComponent } from './computadores/computadores.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    ComputadoresComponent
+    ComputadoresComponent,
+    FormularioComponent,
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    Ng2SearchPipeModule, //import do filtro
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'computadores', component: ComputadoresComponent },
+      { path: 'formulario', component: FormularioComponent },
     ])
   ],
   providers: [],

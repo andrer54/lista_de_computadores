@@ -1,10 +1,49 @@
-<h1 id="tableLabel">Weather forecast</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
+<h1 id="tableLabel">Lista de Computadores</h1>
 
 <p *ngIf="!computadores"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="computadores">
+
+<div class="col-sm-6" *ngIf="computadorSelecionado">
+  <div class="row">
+    <div class="mr-auto">
+      
+    </div>
+    <div class="mt-1">
+      <button class="btn btn-sm btn-outline-danger" (click)="voltar()">
+        Fechar
+      </button>
+    </div>
+  </div>
+<!--
+  <form [formGroup]="computadorForm">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Nome</label>
+      <input type="text" formControlName="nome" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Sobrenome</label>
+      <input type="text" formControlName="sobrenome"  class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Telefone</label>
+      <input type="text" formControlName="telefone" class="form-control">
+    </div>
+    <div class="form-group">
+      <hr>
+      <button class="btn btn-success" (click)="saveAluno()" [disabled]="!alunoForm.valid">Enviar</button>
+    </div>
+  </form>
+--->
+</div>
+
+
+<nav class="navbar">
+  <input class="form-control" type="text" name="search" [(ngModel)]="filter" />
+  <!-- Input que deve ser adicionado -->
+</nav>
+
+<div [ngClass]="{'col-sm-6': computadorSelecionado, 'col-sm-12': !computadorSelecionado}">
+<table class="table table-hover" aria-labelledby="tableLabel" *ngIf="computadores">
   <thead>
     <tr>
       <th>id</th>
@@ -18,7 +57,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let computador of computadores">
+    <tr *ngFor="let computador of computadores | filter:filter; let i = index">
+      <td><button (click)="computadorSelect(computador)"
+        class="text-dark btn btn-sm btn-outline-warning">Detalhe</button></td>
       <td>{{ computador.id }}</td>
       <td>{{ computador.marca }}</td>
       <td>{{ computador.modelo }}</td>
@@ -27,15 +68,15 @@
       <td>{{ computador.hdEMarca }}</td>
       <td>{{ computador.velocidadeDoProcessador }}</td>
       <td>{{ computador.imagem }}</td>
-
-      
-      
-      
-      
-      
-      
-      
-      
+      <td>
+        <div class="btn-group">
+          <button (click)="openModal(template, aluno.id)" class="btn btn-sm btn-outline-primary">Professores</button>
+          <button class="btn btn-sm btn-outline-danger">Desativar</button>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>
+
+</div>
+<button (click)="postagem()">botao</button>

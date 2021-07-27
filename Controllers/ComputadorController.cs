@@ -69,8 +69,8 @@ namespace lista_de_computadores.Controllers
                 _repo.Computador.Update(computador);
                 await _repo.SaveChangesAsync();
 
-                //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-                return Ok();//CreatedAtAction(nameof(Get), new { id = computador.id }, computador);
+                
+                return Ok();
 
 
             }
@@ -79,7 +79,7 @@ namespace lista_de_computadores.Controllers
                 
                 return BadRequest(ex);
             }
-            return BadRequest();
+           // return BadRequest();
         }
 
         //DELETE COMPUTADOR

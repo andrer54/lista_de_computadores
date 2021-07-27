@@ -1,0 +1,31 @@
+<h3>formulário</h3>
+
+
+<div class="cart-item" *ngFor="let computador of computadores">
+  <span>{{ computador.nome }} </span>
+  <span>{{ computador.marca | currency }}</span>
+</div>
+<!-- <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">   -->
+  <form (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="nome">
+      Name
+    </label>
+    <!-- <input id="nome" type="text" formControlName="nome"> -->
+    <input id="nome" type="text" name="nome">
+  </div>
+
+  <div>
+    <label for="marca">
+      Address
+    </label>
+    <!--  <input id="marca" type="text" formControlName="marca"> -->
+    <input id="marca" type="text" name="marca">
+  </div>
+
+  <button class="button" type="submit">Purchase</button>
+
+</form>
+
+-->

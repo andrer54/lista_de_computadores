@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace lista_de_computadores
 {
@@ -27,7 +29,7 @@ namespace lista_de_computadores
             );
 
             services.AddControllersWithViews();
-
+            services.AddDirectoryBrowser();
             
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -51,7 +53,23 @@ namespace lista_de_computadores
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+
+
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+            Path.Combine(env.WebRootPath, "images")),
+        RequestPath = "/MyImages"
+    });
+
+    app.UseDirectoryBrowser(new DirectoryBrowserOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+            Path.Combine(env.WebRootPath, "images")),
+        RequestPath = "/MyImages"
+    });
+            
+            
             if (!env.IsDevelopment())
             {
                 app.UseSpaStaticFiles();
