@@ -2,8 +2,17 @@ Sistema em Angular que:
 administra os computadores em estoque.
 
 
-O sistema permite cadastrar(2), listar(ok), filtrar(5), visualizar(1), alterar(4) e excluir(3) computadores.
+O sistema permite: 
+    cadastrar(ok), 
+    listar(ok), 
+    filtrar(ok), 
+    visualizar(5), 
+    alterar(4) e 
+    excluir(3) computadores.
 
+* TASKS
+ [ ] Criar componente que seja formulário para inserir e alterar computadores
+        (pela api já funciona.)
 
 INFORMAÇÕES REGISTRADAS PELO SISTEMA, 
 marca,
@@ -18,5 +27,5 @@ Tecnologias
  API com C#, Entity FrameWork
  Javascript/Typescript
  Angular
- SQL Server
+ SQLite
 
